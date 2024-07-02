@@ -7,11 +7,11 @@ function createGrid(inp) {
     const sqrSize = container.clientWidth / inp;
 
     for (let i=0; i < (inp * inp); i++ ) {
-        const div = document.createElement("div");
+        let div = document.createElement("div");
         div.style.width = `${sqrSize}px`;
         div.style.height = `${sqrSize}px`;
         div.style.boxSizing = "border-box";
-        div.style.border = "0.5px solid black";
+        div.style.border = "1px solid black";
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = getRandomColors();
         });
@@ -26,8 +26,8 @@ function getRandomColors() {
 }
 
 btn.addEventListener("click", () => {
-    let inp = parseInt(prompt("Write down a number between 0 and 100:"));
-    if (typeof (inp) === Number && inp <= 100 && inp > 0) {
+    let inp = parseInt(prompt("Enter a number between 0 and 100 for the updated grid:"));
+    if (!isNaN(inp) && inp <= 100 && inp > 0) {
         createGrid(inp);
     }
     else {
