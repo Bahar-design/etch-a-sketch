@@ -1,13 +1,17 @@
-let size = 16;
+const container = document.querySelector(".container");
+const btn = document.querySelector(".btn");
 
-function createGrid() {
-    for (let i=0; i < (size * size); i++ ) {
-        const container = document.querySelector(".container");
-        let div = document.createElement("div");
-        div.style.width = "calc(100% / 16)";
-        div.style.height = "calc(100% / 16)";
+function createGrid(inp) {
+
+    container.replaceChildren();
+    const sqrSize = container.clientWidth / inp;
+
+    for (let i=0; i < (inp * inp); i++ ) {
+        const div = document.createElement("div");
+        div.style.width = `${sqrSize}px`;
+        div.style.height = `${sqrSize}px`;
         div.style.boxSizing = "border-box";
-        div.style.border = "1px solid #ddd";
+        div.style.border = "0.5px solid black";
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = getRandomColors();
         });
@@ -20,4 +24,15 @@ function getRandomColors() {
     let blue = Math.floor(Math.random() * 256);
     return `rgb(${red}, ${green}, ${blue})`;
 }
-createGrid();
+
+btn.addEventListener("click", () => {
+    let inp = parseInt(prompt("Write down a number between 0 and 100:"));
+    if (typeof (inp) === Number && inp <= 100 && inp > 0) {
+        createGrid(inp);
+    }
+    else {
+        alert("Your input is not valid. Enter a number between 0 and 100.");
+    }
+});
+
+createGrid(16);
