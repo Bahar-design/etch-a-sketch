@@ -11,7 +11,7 @@ function createGrid(inp) {
         div.style.width = `${sqrSize}px`;
         div.style.height = `${sqrSize}px`;
         div.style.boxSizing = "border-box";
-        div.style.border = "1px solid black";
+        div.style.border = "1px solid #353935";
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = getRandomColors();
         });
