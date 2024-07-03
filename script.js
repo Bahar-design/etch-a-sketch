@@ -4,7 +4,7 @@ const btn = document.querySelector(".btn");
 function createGrid(inp) {
 
     container.replaceChildren();
-    const sqrSize = container.clientWidth / inp;
+    const sqrSize = (750 / inp);
 
     for (let i=0; i < (inp * inp); i++ ) {
         let div = document.createElement("div");
