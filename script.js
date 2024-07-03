@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const btn = document.querySelector(".btn");
+const btnClear = document.querySelector(".btnClear");
 
 function createGrid(inp) {
 
@@ -33,6 +34,11 @@ btn.addEventListener("click", () => {
     else {
         alert("Your input is not valid. Enter a number between 0 and 100.");
     }
+});
+
+btnClear.addEventListener("click", () => {
+    container.replaceChildren();
+    createGrid(16);
 });
 
 createGrid(16);
